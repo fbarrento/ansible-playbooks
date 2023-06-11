@@ -1,0 +1,9 @@
+- name: NTP install
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Make sure NTP service is running
+      ansible.builtin.systemd:
+        state: started
+        name: systemd-timesyncd
